@@ -1,44 +1,38 @@
 #include <iostream>
 using namespace std;
 
-class Node {
-public:
+class Node{
+    public:
     int data;
     Node* link;
 
-    // Constructor
-    Node(int data) {
-        this->data = data;
-        this->link = nullptr;
+    Node(int num){
+        this->data=num;
+        this->link=nullptr;
     }
 };
+class LinkedList{
 
-class LinkedList {
-private:
+    private:
     Node* head;
+    public:
 
-public:
-    // Constructor
-    LinkedList() {
-        head = nullptr;
+    LinkedList(){
+        head=nullptr;
     }
 
-    // Method to insert a new node at the end of the linked list
-    void insert(int data) {
-        Node* newNode = new Node(data);
-
-        if (head == nullptr) {
-            head = newNode;
-        } else {
-            Node* temp = head;
-            while (temp->link != nullptr) {
-                temp = temp->link;
-            }
-            temp->link = newNode;
+    void insert(int num){
+    Node* newnode=new Node(num);
+    if(head == nullptr){
+        head=newnode;
+    }else{
+        Node* temp=head;
+        while(temp->link!=nullptr){
+            temp=temp->link;
         }
+        temp->link=newnode;
+    }    
     }
-
-    // Method to display the linked list
     void display() {
         Node* current = head;
         while (current != nullptr) {
@@ -49,17 +43,16 @@ public:
     }
 };
 
-int main() {
+int main(){
     LinkedList list;
-
-    // Insert elements into the linked list
-    list.insert(10);
-    list.insert(20);
-    list.insert(30);
-
-    // Display the linked list
-    cout << "Linked List: ";
+    int n,x;
+    cout<<"Enter the number of values "<<endl;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>x;
+        list.insert(x);
+    }
+    cout<<"Linked list"<<endl;
     list.display();
 
-    return 0;
 }
