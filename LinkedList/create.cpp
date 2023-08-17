@@ -25,13 +25,22 @@ class LinkedList{
             temp->next=newnode;
         }
     }
-    void display(Node* head){
-        Node* current=head;
-        while(current!=nullptr){
-            cout<<current->data<<" ";
-            current=current->next;
+    // void display(Node* head){
+    //     Node* current=head;
+    //     while(current!=nullptr){
+    //         cout<<current->data<<" ";
+    //         current=current->next;
 
+    //     }
+    // }
+    // display linkedlist in reverse order
+    void reverse(Node* head){
+        if(head==NULL){
+            return;
         }
+        reverse(head->next);
+        cout<<head->data<< " "<<endl;
+        
     }
 };
 
@@ -46,5 +55,6 @@ int main(){
         cin>>x;
         list.insert(head,x);
     }
-    list.display(head);
+   // list.display(head);
+   list.reverse(head);
 }

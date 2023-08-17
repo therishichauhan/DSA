@@ -43,15 +43,16 @@ public:
             head=head->next;
             free(temp);
        
-    }else if(true){
-        Node* second_last=head;
-        while(second_last->next->next!=nullptr){
-            second_last=second_last->next;
-        }
-        Node* save=second_last->next;
-        second_last->next=NULL;
+    }
+    // else if(true){
+    //     Node* second_last=head;
+    //     while(second_last->next->next!=nullptr){
+    //         second_last=second_last->next;
+    //     }
+    //     Node* save=second_last->next;
+    //     second_last->next=NULL;
 
-        }
+    //     }
         else{
         Node* temp=head;
         int cnt=0;
