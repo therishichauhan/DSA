@@ -32,8 +32,24 @@ class LinkedList{
             current=current->next;
 
         }
-    }
+//-------recursive insertion----------------
+    // Node* insert(Node* current, int num) {
+    //     if (current == nullptr) {
+    //         return new Node(num);
+    //     }
 
+    //     current->next = insert(current->next, num);
+    //     return current;
+    // }
+
+    // void display(Node* current) {
+    //     if (current == nullptr) {
+    //         return;
+    //     }
+    //     cout << current->data << " ";
+    //     display(current->next);
+    // }
+//--------------------------------------------------
  // display linkedlist in reverse order
     // void reverse(Node* head){
     //     if(head==NULL){
@@ -59,4 +75,16 @@ int main(){
     }
    list.display(head);
 //    list.reverse(head);
+
+//-------recursive insertion----------------
+//  for (int i = 0; i < n; i++) {
+//         cin >> x;
+//         head = list.insert(head, x); // Update the head after each insertion
+//     }
+
 }
+
+
+
+
+

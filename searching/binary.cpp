@@ -4,39 +4,39 @@ using namespace std;
 //-----------Binary search using rescursion-------------
 
 
-int binarysearch(int elmt,int a[],int first,int last ){
-    int mid=(first+last)/2;
-    if(a[mid]==elmt)
-    return mid;
-    else{
-        if(mid>elmt){
-            return binarysearch(elmt,a,mid+1,last);
-        }else{
-            return binarysearch(elmt,a,first,mid-1);
-        }
-    }
-    return -1;
-}
+// int binarysearch(int elmt,int a[],int first,int last ){
+//     int mid=(first+last)/2;
+//     if(a[mid]==elmt)
+//     return mid;
+//     else{
+//         if(mid>elmt){
+//             return binarysearch(elmt,a,mid+1,last);
+//         }else{
+//             return binarysearch(elmt,a,first,mid-1);
+//         }
+//     }
+//     return -1;
+// }
 
 ///--------binary search using iteration--------------------
 
-// int binarysearch(int elmt,int *a,int s ){
-//     int low=0,high=s-1;
-//     while(low<=high){
-//     int mid=low+((high-low)/2);
-//     if(a[mid]==elmt){
-//     return mid;
-//     }
-//     else if(elmt<a[mid]){
+int binarysearch(int elmt,int *a,int s ){
+    int low=0,high=s-1;
+    while(low<=high){
+    int mid=low+((high-low)/2);
+    if(a[mid]==elmt){
+    return mid;
+    }
+    else if(elmt<a[mid]){
 
-//         high=mid-1;
-//     }else if(elmt>a[mid]){
-//         low=mid+1;
-//     }
-//   }
-// return -1;
+        high=mid-1;
+    }else if(elmt>a[mid]){
+        low=mid+1;
+    }
+  }
+return -1;
 
-// }
+}
 
 int main(){
     int num;

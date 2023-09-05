@@ -38,18 +38,18 @@ public:
     // }
 
 
-    //  void insertatlast(int num) {
-    //     Node* newnode = new Node(num);
+     void insert(int num) {
+        Node* newnode = new Node(num);
 
-    //     if (head == nullptr) {
-    //         head = newnode;
-    //         tail = newnode;
-    //     } else {
-    //         tail->next=newnode;
-    //         newnode->prev=tail;
-    //        tail=newnode;
-    //     }
-    // }
+        if (head == nullptr) {
+            head = newnode;
+            tail = newnode;
+        } else {
+            tail->next=newnode;
+            newnode->prev=tail;
+           tail=newnode;
+        }
+    }
 
 //     void insertatKth(int num, int p) {
 //      Node* newnode = new Node(num);
