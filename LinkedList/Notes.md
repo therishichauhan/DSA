@@ -475,6 +475,35 @@ The ``circular linked list`` is a linked list where all nodes are connected to f
 
 - The last node's next pointer points back to the first node, creating the circular structure.
 
+``Application of Circular Linked Lists:``
+
+- Circular Linked Lists can be used to manage the computing resources of the computer.
+- Data structures such as stacks and queues are implemented with the help of the circular linked lists.
+- Circular Linked List is also used in the implementation of advanced data structures such as a Fibonacci Heap.
+- It is also used in computer networking for token scheduling.
+
+``Real-Life Application of Circular Linked Lists:``
+
+- Round Robin scheduling technique in games.
+- Audio/Video Streaming
+- Circular Escalators
+
+``Advantages of Circular Linked Lists:``
+
+- It is possible to traverse from the last node back to the first i.e. the head node.
+- The starting node does not matter as we can traverse each and every node despite whatever node we keep as the starting node.
+- The previous node can be easily identified.
+- There is no need for a NULL function to code. The circular list never identifies a NULL identifier unless it is fully assigned.
+- Circular linked lists are beneficial for end operations as start and finish coincide. 
+- Algorithms such as Round Robin setup can effectively complete online queues without having to meet NULL suspension or reference references.
+
+``Disadvantages of Circular Linked Lists:``
+
+- If the circular linked list is not handled properly then it can lead to an infinite loop as it is circular in nature.
+- In comparison with singly-linked lists, doubly linked lists are more complex in nature
+- Direct accessing of elements is not possible.
+- It is generally a complex task to reverse a circular linked list.
+
 ``Circular Linked List Traversal``
 
 ```
@@ -597,3 +626,162 @@ Node *delHead(Node *head){
     return (curr->next);
 }
 ```
+
+``Circular Doubly Linked List``
+
+A circular doubly linked list is defined as a ``circular linked list`` in which each node has two links connecting it to the previous node and the next node.
+
+``Operations on circular doubly linked list :``
+
+```
+
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+Node* head = nullptr;
+
+void insertion_beginning() {
+    Node* ptr = new Node();
+    int item;
+
+    if (ptr == nullptr) {
+        std::cout << "\nOVERFLOW" << std::endl;
+    } else {
+        std::cout << "\nEnter Item value: ";
+        std::cin >> item;
+        ptr->data = item;
+
+        if (head == nullptr) {
+            head = ptr;
+            ptr->next = head;
+            ptr->prev = head;
+        } else {
+            Node* temp = head;
+            while (temp->next != head) {
+                temp = temp->next;
+            }
+            temp->next = ptr;
+            ptr->prev = temp;
+            head->prev = ptr;
+            ptr->next = head;
+            head = ptr;
+        }
+        std::cout << "\nNode inserted" << std::endl;
+    }
+}
+
+void insertion_last() {
+    Node* ptr = new Node();
+    int item;
+
+    if (ptr == nullptr) {
+        std::cout << "\nOVERFLOW" << std::endl;
+    } else {
+        std::cout << "\nEnter value: ";
+        std::cin >> item;
+        ptr->data = item;
+
+        if (head == nullptr) {
+            head = ptr;
+            ptr->next = head;
+            ptr->prev = head;
+        } else {
+            Node* temp = head;
+            while (temp->next != head) {
+                temp = temp->next;
+            }
+            temp->next = ptr;
+            ptr->prev = temp;
+            head->prev = ptr;
+            ptr->next = head;
+        }
+        std::cout << "\nNode inserted" << std::endl;
+    }
+}
+
+void deletion_beginning() {
+    if (head == nullptr) {
+        std::cout << "\nUNDERFLOW" << std::endl;
+    } else if (head->next == head) {
+        delete head;
+        head = nullptr;
+        std::cout << "\nNode deleted" << std::endl;
+    } else {
+        Node* temp = head;
+        while (temp->next != head) {
+            temp = temp->next;
+        }
+        temp->next = head->next;
+        head->next->prev = temp;
+        delete head;
+        head = temp->next;
+        std::cout << "\nNode deleted" << std::endl;
+    }
+}
+
+void deletion_last() {
+    if (head == nullptr) {
+        std::cout << "\nUNDERFLOW" << std::endl;
+    } else if (head->next == head) {
+        delete head;
+        head = nullptr;
+        std::cout << "\nNode deleted" << std::endl;
+    } else {
+        Node* ptr = head;
+        if (ptr->next != head) {
+            ptr = ptr->next;
+        }
+        ptr->prev->next = head;
+        head->prev = ptr->prev;
+        delete ptr;
+        std::cout << "\nNode deleted" << std::endl;
+    }
+}
+
+void display() {
+    Node* ptr = head;
+    if (head == nullptr) {
+        std::cout << "\nNothing to print" << std::endl;
+    } else {
+        std::cout << "\nPrinting values ... " << std::endl;
+        do {
+            std::cout << ptr->data << std::endl;
+            ptr = ptr->next;
+        } while (ptr != head);
+    }
+}
+
+void search() {
+    Node* ptr = head;
+    int item, i = 0;
+    bool flag = true;
+
+    if (ptr == nullptr) {
+        std::cout << "\nEmpty List" << std::endl;
+    } else {
+        std::cout << "\nEnter item which you want to search: ";
+        std::cin >> item;
+
+        do {
+            if (ptr->data == item) {
+                std::cout << "Item found at location " << i + 1 << std::endl;
+                flag = false;
+                break;
+            } else {
+                flag = true;
+            }
+            i++;
+            ptr = ptr->next;
+        } while (ptr != head);
+
+        if (flag) {
+            std::cout << "Item not found" << std::endl;
+        }
+    }
+}
+```
+
